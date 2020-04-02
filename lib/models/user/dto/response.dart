@@ -1,6 +1,4 @@
-
-
-class User {
+class UserDto {
   String firstName;
   String lastName;
   String email;
@@ -14,7 +12,7 @@ class User {
   bool isActive;
   bool isDisabled;
 
-  User(
+  UserDto(
       {this.firstName,
       this.lastName,
       this.email,
@@ -28,8 +26,8 @@ class User {
       this.isActive,
       this.isDisabled});
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
+  factory UserDto.fromJson(Map<String, dynamic> json) {
+    return UserDto(
         firstName: json['first_name'],
         lastName: json['lst_name'],
         email: json['email'],
@@ -39,8 +37,24 @@ class User {
         country: json['country'],
         zipcode: json['zip_code'],
         dob: json['dob'],
-        gender: json['json'],
+        gender: json['gender'],
         isActive: json['is_active'],
         isDisabled: json['os_disabled']);
+  }
+
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> jsonData = new Map<String, dynamic>();
+    jsonData['first_name'] = this.firstName;
+    jsonData['last_name'] = this.lastName;
+    jsonData['email'] = this.email;
+    jsonData['contact_number'] = this.contactNumber;
+    jsonData['city'] = this.city;
+    jsonData['state'] = this.state;
+    jsonData['country'] = this.country;
+    jsonData['zip_code'] = this.zipcode;
+    jsonData['dob'] = this.dob;
+    jsonData['gender'] = this.gender;
+
+    return jsonData;
   }
 }

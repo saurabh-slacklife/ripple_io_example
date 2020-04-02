@@ -1,10 +1,10 @@
-class User {
+class UserRequest {
   String email;
   String contactNumber;
 
-  User({this.email, this.contactNumber});
+  UserRequest({this.email, this.contactNumber});
 
-  Map<String, dynamic> toJson(User userData) {
+  Map<String, dynamic> toJson(UserRequest userData) {
     Map<String, dynamic> jsonData = new Map<String, dynamic>();
     if (null != userData) {
       if (null != this.email && this.email.isNotEmpty) {
